@@ -205,6 +205,11 @@ jobs:
         run: |
           docker build -t ghcr.io/myshuttle:${{ github.sha }} . -f src/Dockerfile
 
+      - uses: anchore/sbom-action@v0
+        with:
+          image: ghcr.io/myshuttle:${{ github.sha }}
+          dependency-snapshot: true
+
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
