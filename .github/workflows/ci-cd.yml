@@ -209,6 +209,7 @@ jobs:
         with:
           image: ghcr.io/myshuttle:${{ github.sha }}
           dependency-snapshot: true
+          artifact-name: sbom.spdx
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
